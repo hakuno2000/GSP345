@@ -5,10 +5,10 @@ variable "region" {
 
 variable "zone" {
   type = string
-  default = "us-east1-c"
+  default = "us-east1-d"
 }
 
 variable "project_id" {
   type = string
-  default = "qwiklabs-gcp-02-15395569f17a"
+  default = "qwiklabs-gcp-04-89a8c47e849a"
 }
