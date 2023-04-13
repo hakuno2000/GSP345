@@ -6,7 +6,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket  = "tf-bucket-387805"
+    bucket  = "tf-bucket-526901"
     prefix  = "terraform/state"
   }
 }
@@ -24,7 +24,7 @@ module "vpc" {
     version = "~> 6.0"
 
     project_id   = "qwiklabs-gcp-02-15395569f17a"
-    network_name = "tf-vpc-962436"
+    network_name = "tf-vpc-229756"
     routing_mode = "GLOBAL"
 
     subnets = [
