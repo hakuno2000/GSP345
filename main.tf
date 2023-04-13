@@ -23,7 +23,7 @@ module "vpc" {
     source  = "terraform-google-modules/network/google"
     version = "~> 6.0"
 
-    project_id   = "qwiklabs-gcp-02-15395569f17a"
+    project_id   = "qwiklabs-gcp-04-89a8c47e849a"
     network_name = "tf-vpc-229756"
     routing_mode = "GLOBAL"
 
@@ -37,40 +37,18 @@ module "vpc" {
             subnet_name           = "subnet-02"
             subnet_ip             = "10.10.20.0/24"
             subnet_region         = "us-east1"
-            subnet_private_access = "true"
-            subnet_flow_logs      = "true"
-            description           = "This subnet has a description"
         }
     ]
-
-    # routes = [
-    #     {
-    #         name                   = "egress-internet"
-    #         description            = "route through IGW to access internet"
-    #         destination_range      = "0.0.0.0/0"
-    #         tags                   = "egress-inet"
-    #         next_hop_internet      = "true"
-    #     },
-    #     {
-    #         name                   = "app-proxy"
-    #         description            = "route through proxy to reach app"
-    #         destination_range      = "10.50.10.0/24"
-    #         tags                   = "app-proxy"
-    #         next_hop_instance      = "app-proxy-instance"
-    #         next_hop_instance_zone = "us-west1-a"
-    #     },
-    # ]
 }
 
 resource "google_compute_firewall" "tf-firewall" {
   name    = "tf-firewall"
- network = "projects/qwiklabs-gcp-02-15395569f17a/global/networks/tf-vpc-962436"
+ network = "projects/qwiklabs-gcp-04-89a8c47e849a/global/networks/tf-vpc-229756"
 
   allow {
     protocol = "tcp"
     ports    = ["80"]
   }
 
-  source_tags = ["web"]
   source_ranges = ["0.0.0.0/0"]
 }
